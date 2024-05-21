@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<api-gateway:autodiscovery apiId="19523030" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="cb877aa5-3264-4a79-8f51-ba44ff2fc8bf" flowRef="bank-customer-account-creation-main" />
+	<flow name="sampleFlow" doc:id="c608d448-efc5-4305-b930-416463e7e61c" >
+		<http:listener doc:name="Listener" doc:id="76875d85-1b4e-48ff-8ab8-948a54c04d83" config-ref="bank-customer-account-creation-httpListenerConfig" path="/hello"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a4886d4d-94b4-49de-8858-1c2521fefa03" message="'Hiiiii'"/>
+		<ee:transform doc:name="Transform Message" doc:id="2fa1f155-3c8f-405a-9173-7ab4e4753cd7" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+"HELLO KRANTHI"]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
