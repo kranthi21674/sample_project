@@ -35,6 +35,7 @@
       <muleVersion>4.4.0</muleVersion>
       <username>kranthi21675</username>
       <password>Kranthi1479@$</password>
+<BusinessGroup>TCS</BusinessGroup>
       <applicationName>sample_project</applicationName>
       <environment>DEV</environment>
       <region>us-east-1</region>
